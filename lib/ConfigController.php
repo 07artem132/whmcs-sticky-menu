@@ -15,15 +15,15 @@ use  WHMCS\Module\Addon\Setting;
  * @package WHMCS\Module\Addon\PostponeDueDate
  */
 class ConfigController implements \ArrayAccess, \Iterator, \Countable {
-	public const MODULE_NAME = 'StickyMenu';
+	public static $MODULE_NAME = 'StickyMenu';
 	private static $storage = null;
 	private static $position = null;
 
 	/**
 	 * @return string[]
 	 */
-	public function load(): void {
-		array_walk( Setting::Module( self::MODULE_NAME )->get()->toArray(), function ( $val, $key ) {
+	public function load() {
+		array_walk( Setting::Module( self::$MODULE_NAME )->get()->toArray(), function ( $val, $key ) {
 			self::$storage[ $val['setting'] ] = $val['value'];
 		} );
 	}
@@ -31,7 +31,7 @@ class ConfigController implements \ArrayAccess, \Iterator, \Countable {
 	/**
 	 * @return array
 	 */
-	function toArray():array {
+	function toArray() {
 		if ( self::$storage === null ) {
 			self::load();
 		}
