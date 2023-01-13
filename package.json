@@ -18,6 +18,6 @@
     "babel-preset-es2015": "^6.24.1",
     "progress-bar-webpack-plugin": "^1.11.0",
     "webpack": "^4.15.1",
-    "webpack-cli": "^3.0.8"
+    "webpack-cli": "^3.3.12"
   }
 }
